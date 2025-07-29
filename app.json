@@ -21,7 +21,10 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.reactgamal.VitalFlow"
+      "package": "com.reactgamal.VitalFlow",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-5483967054440200~9266862724"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
