@@ -18,7 +18,6 @@ import * as ExpoNotifications from 'expo-notifications';
 import { View, TouchableOpacity, Text, StyleSheet, Platform } from 'react-native';
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { BannerAd } from './components/BannerAd';
-import mobileAds from 'react-native-google-mobile-ads';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -227,9 +226,6 @@ export default function App() {
 
   const initializeApp = async () => {
     try {
-      // Initialize AdMob
-      await mobileAds().initialize();
-
       // Initialize notification service
       await notificationService.initialize();
 

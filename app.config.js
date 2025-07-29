@@ -13,7 +13,10 @@ export default {
       backgroundColor: "#ffffff"
     },
     ios: {
-      supportsTablet: true
+      supportsTablet: true,
+      config: {
+        googleMobileAdsAppId: "ca-app-pub-5483967054440200~9266862724"
+      }
     },
     android: {
       adaptiveIcon: {
@@ -34,8 +37,12 @@ export default {
       [
         "react-native-google-mobile-ads",
         {
-          androidAppId: "ca-app-pub-5483967054440200~9266862724",
-          delayAppMeasurementInit: true
+          android: {
+            appId: "ca-app-pub-5483967054440200~9266862724"
+          },
+          ios: {
+            appId: "ca-app-pub-5483967054440200~9266862724"
+          }
         }
       ]
     ],
