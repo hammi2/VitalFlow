@@ -10,6 +10,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useAppContext } from '../context/AppContext';
 import { storage, Meal } from '../utils/storage';
+import { BannerAd } from '../components/BannerAd';
 
 interface HomeProps {
   navigation: any;
@@ -214,6 +215,11 @@ export const Home: React.FC<HomeProps> = ({ navigation }) => {
             <Text style={styles.caloriesLabel}>Remaining</Text>
           </View>
         </View>
+      </View>
+
+      {/* Banner Ad */}
+      <View style={styles.bannerContainer}>
+        <BannerAd position="bottom" testMode={true} />
       </View>
 
       {/* Quick Actions */}
@@ -838,5 +844,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 8,
+  },
+  bannerContainer: {
+    marginVertical: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }); 

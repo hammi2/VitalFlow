@@ -13,7 +13,10 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-5483967054440200~9266862724"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -44,4 +47,4 @@
       "url": "https://u.expo.dev/8bb1ff44-ee27-4579-80ad-7f80daa5cc9e"
     }
   }
-}
+} 

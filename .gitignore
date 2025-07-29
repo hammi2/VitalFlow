@@ -35,3 +35,52 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# Build artifacts
+build/
+.next/
+out/
+
+# Logs
+*.log
+log.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary
+*.tmp
+*.temp
+.cache/
+
+# Release files
+Realees/
+*.aab
+*.apk
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Test
+__tests__/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Coverage
+coverage/
+*.lcov

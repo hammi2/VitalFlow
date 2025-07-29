@@ -1,0 +1,68 @@
+# Website files - ملفات الموقع
+public/
+docs/
+netlify.toml
+vercel.json
+
+# Build artifacts - ملفات البناء
+dist/
+build/
+.next/
+out/
+
+# Development files - ملفات التطوير
+*.log
+log.txt
+.DS_Store
+Thumbs.db
+
+# IDE files - ملفات المحرر
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files - ملفات النظام
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files - ملفات مؤقتة
+*.tmp
+*.temp
+.cache/
+
+# Documentation - التوثيق
+README.md
+*.md
+!BUILD_FIX.md
+
+# Release files - ملفات الإصدار
+Realees/
+*.aab
+*.apk
+
+# Environment files - ملفات البيئة
+.env
+.env.local
+.env.production
+
+# Test files - ملفات الاختبار
+__tests__/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Coverage reports - تقارير التغطية
+coverage/
+*.lcov
+
+# Dependencies - التبعيات (إذا لم تكن مطلوبة)
+node_modules/
+yarn.lock
+package-lock.json 

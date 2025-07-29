@@ -318,17 +318,14 @@ export default function App() {
     <AppProvider>
       <NavigationContainer>
         <StatusBar style="light" />
-        <View style={{ flex: 1 }}>
-          <Stack.Navigator
-            screenOptions={{
-              headerShown: false,
-            }}
-          >
-            <Stack.Screen name="MainTabs" component={MainTabs} />
-            <Stack.Screen name="Sleep" component={Sleep} />
-          </Stack.Navigator>
-          <BannerAd position="bottom" testMode={true} />
-        </View>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="MainTabs" component={MainTabs} />
+          <Stack.Screen name="Sleep" component={Sleep} />
+        </Stack.Navigator>
       </NavigationContainer>
     </AppProvider>
   );
