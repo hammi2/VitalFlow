@@ -1,0 +1,13 @@
+{
+  "name": "vitalflow-website",
+  "version": "1.0.0",
+  "description": "الموقع الرسمي لتطبيق VitalFlow",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'No build step needed for static site'"
+  },
+  "keywords": ["vitalflow", "fitness", "app"],
+  "author": "React Gamal",
+  "license": "MIT"
+} 

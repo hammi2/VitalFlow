@@ -319,6 +319,7 @@ export default function App() {
           }}
         >
           <Stack.Screen name="MainTabs" component={MainTabs} />
+          <Stack.Screen name="Sleep" component={Sleep} />
         </Stack.Navigator>
       </NavigationContainer>
     </AppProvider>

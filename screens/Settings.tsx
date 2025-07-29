@@ -220,12 +220,7 @@ export const Settings: React.FC = () => {
         </View>
 
         {/* Logout */}
-        <View style={styles.section}>
-          <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-            <Ionicons name="log-out-outline" size={20} color="#FF5252" />
-            <Text style={styles.logoutText}>Logout</Text>
-          </TouchableOpacity>
-        </View>
+
       </ScrollView>
 
       {/* Edit Profile Modal */}
