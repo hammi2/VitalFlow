@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { InterstitialAd, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 import { getAdUnitId } from '../utils/admob';
 
 interface InterstitialAdProps {
@@ -16,36 +17,57 @@ export const useInterstitialAd = ({
 }: InterstitialAdProps = {}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [interstitial, setInterstitial] = useState<InterstitialAd | null>(null);
   const adUnitId = getAdUnitId('INTERSTITIAL', testMode);
 
   const loadAd = () => {
     setIsLoading(true);
     console.log('Loading interstitial ad with ID:', adUnitId);
     
-    // محاكاة تحميل الإعلان
-    setTimeout(() => {
+    const newInterstitial = InterstitialAd.createForAdRequest(adUnitId, {
+      requestNonPersonalizedAdsOnly: true,
+    });
+
+    const unsubscribeLoaded = newInterstitial.addAdEventListener(AdEventType.LOADED, () => {
       setIsLoaded(true);
       setIsLoading(false);
+      setInterstitial(newInterstitial);
       onAdLoaded?.();
       console.log('Interstitial ad loaded successfully');
-    }, 2000);
+    });
+
+    const unsubscribeFailed = newInterstitial.addAdEventListener(AdEventType.ERROR, (error) => {
+      setIsLoading(false);
+      onAdFailedToLoad?.(error?.message || 'Unknown error');
+      console.log('Interstitial ad failed to load:', error?.message);
+    });
+
+    const unsubscribeClosed = newInterstitial.addAdEventListener(AdEventType.CLOSED, () => {
+      setIsLoaded(false);
+      setInterstitial(null);
+      onAdClosed?.();
+      console.log('Interstitial ad closed');
+      // إعادة تحميل الإعلان للاستخدام التالي
+      setTimeout(() => loadAd(), 1000);
+    });
+
+    newInterstitial.load();
+
+    return () => {
+      unsubscribeLoaded();
+      unsubscribeFailed();
+      unsubscribeClosed();
+    };
   };
 
   const showAd = () => {
-    if (!isLoaded) {
-      console.log('Ad not loaded yet');
+    if (!isLoaded || !interstitial) {
+      console.log('Ad not loaded yet or interstitial is null');
       return false;
     }
 
     console.log('Showing interstitial ad...');
-    
-    // محاكاة عرض الإعلان
-    setTimeout(() => {
-      setIsLoaded(false);
-      onAdClosed?.();
-      console.log('Interstitial ad closed');
-    }, 3000);
-
+    interstitial.show();
     return true;
   };
 

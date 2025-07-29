@@ -11,6 +11,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAppContext } from '../context/AppContext';
 import { storage, Meal } from '../utils/storage';
 import { BannerAd } from '../components/BannerAd';
+import { TestInterstitialButton } from '../components/TestInterstitialButton';
 
 interface HomeProps {
   navigation: any;
@@ -221,6 +222,9 @@ export const Home: React.FC<HomeProps> = ({ navigation }) => {
       <View style={styles.bannerContainer}>
         <BannerAd position="bottom" testMode={true} />
       </View>
+
+      {/* Test Interstitial Button */}
+      <TestInterstitialButton />
 
       {/* Quick Actions */}
       <View style={styles.section}>

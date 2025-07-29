@@ -6,7 +6,7 @@ export const ADMOB_CONFIG = {
   // Ad Unit IDs - من AdMob
   AD_UNITS: {
     BANNER: 'ca-app-pub-5483967054440200/2846247426', // Banner Ad Unit ID
-    INTERSTITIAL: 'ca-app-pub-5483967054440200/XXXXXXXXXX', // Interstitial Ad Unit ID
+    INTERSTITIAL: 'ca-app-pub-5483967054440200/7663960843', // Interstitial Ad Unit ID
     REWARDED: 'ca-app-pub-5483967054440200/XXXXXXXXXX', // Rewarded Video Ad Unit ID
     NATIVE: 'ca-app-pub-5483967054440200/XXXXXXXXXX', // Native Advanced Ad Unit ID
   },

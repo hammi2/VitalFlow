@@ -269,6 +269,7 @@ export default function App() {
     };
   };
 
+
   const handleNotificationResponse = (response: ExpoNotifications.NotificationResponse) => {
     const data = response.notification.request.content.data;
     

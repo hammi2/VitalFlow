@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Vibration, Alert, ScrollView, Modal } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import { Ionicons } from '@expo/vector-icons';
+import { useInterstitialAd } from '../components/InterstitialAd';
 
 const TIMER_RADIUS = 100;
 const STROKE_WIDTH = 8;
@@ -10,6 +11,13 @@ const CIRCUMFERENCE = 2 * Math.PI * TIMER_RADIUS;
 type TimerMode = 'countup' | 'countdown';
 
 export const WorkoutTimer: React.FC = () => {
+  // Interstitial Ad
+  const interstitialAd = useInterstitialAd({
+    testMode: true,
+    onAdLoaded: () => console.log('Interstitial ad loaded'),
+    onAdClosed: () => console.log('Interstitial ad closed')
+  });
+
   // Timer mode state
   const [timerMode, setTimerMode] = useState<TimerMode>('countup');
 
@@ -62,6 +70,17 @@ export const WorkoutTimer: React.FC = () => {
             setIsCountdownRunning(false);
             // Multiple vibrations and sound-like pattern
             Vibration.vibrate([0, 1000, 200, 1000, 200, 1000]);
+            // عرض الإعلان البيني عند إكمال التمرين
+            setTimeout(() => {
+              if (interstitialAd.isAdReady()) {
+                console.log('Showing interstitial ad after workout completion');
+                interstitialAd.showAd();
+              } else {
+                console.log('Interstitial ad not ready, loading...');
+                interstitialAd.loadAd();
+              }
+            }, 1000);
+            
             Alert.alert(
               '⏰ Timer Complete!', 
               'Your workout session has ended. Great job! 🎉',
@@ -102,6 +121,17 @@ export const WorkoutTimer: React.FC = () => {
 
   const handleCountUpStop = () => {
     setIsCountUpRunning(false);
+    
+    // عرض الإعلان البيني عند إيقاف التمرين
+    setTimeout(() => {
+      if (interstitialAd.isAdReady()) {
+        console.log('Showing interstitial ad after workout stop');
+        interstitialAd.showAd();
+      } else {
+        console.log('Interstitial ad not ready, loading...');
+        interstitialAd.loadAd();
+      }
+    }, 500);
   };
 
   const handleCountUpReset = () => {
