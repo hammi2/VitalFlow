@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import { BannerAd as RNBannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import { getAdUnitId } from '../utils/admob';
 
 interface BannerAdProps {
@@ -14,20 +15,22 @@ export const BannerAd: React.FC<BannerAdProps> = ({
   testMode = false 
 }) => {
   const adUnitId = getAdUnitId('BANNER', testMode);
+  const bannerSize = size === 'BANNER' ? BannerAdSize.BANNER : 
+                    size === 'LARGE_BANNER' ? BannerAdSize.LARGE_BANNER : 
+                    BannerAdSize.MEDIUM_RECTANGLE;
 
   return (
     <View style={[
       styles.container, 
       position === 'top' ? styles.topPosition : styles.bottomPosition
     ]}>
-      {/* هنا سيتم إضافة مكون Banner Ad الحقيقي */}
-      <View style={styles.adPlaceholder}>
-        {/* Placeholder للبانر الإعلاني */}
-        <View style={styles.adContent}>
-          <View style={styles.adText}>Ad Banner</View>
-          <View style={styles.adUnitId}>{adUnitId}</View>
-        </View>
-      </View>
+      <RNBannerAd
+        unitId={testMode ? TestIds.BANNER : adUnitId}
+        size={bannerSize}
+        requestOptions={{
+          requestNonPersonalizedAdsOnly: true,
+        }}
+      />
     </View>
   );
 };

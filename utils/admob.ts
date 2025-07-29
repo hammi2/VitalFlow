@@ -1,14 +1,14 @@
 // AdMob Configuration for VitalFlow
 export const ADMOB_CONFIG = {
-  // App ID - استبدل هذا بـ App ID الخاص بك من AdMob
-  APP_ID: 'ca-app-pub-548396705444200~XXXXXXXXXX', // استبدل بـ App ID الحقيقي
+  // App ID - من AdMob
+  APP_ID: 'ca-app-pub-5483967054440200~9266862724',
   
-  // Ad Unit IDs - استبدل هذه بـ Ad Unit IDs الحقيقية من AdMob
+  // Ad Unit IDs - من AdMob
   AD_UNITS: {
-    BANNER: 'ca-app-pub-548396705444200/XXXXXXXXXX', // Banner Ad Unit ID
-    INTERSTITIAL: 'ca-app-pub-548396705444200/XXXXXXXXXX', // Interstitial Ad Unit ID
-    REWARDED: 'ca-app-pub-548396705444200/XXXXXXXXXX', // Rewarded Video Ad Unit ID
-    NATIVE: 'ca-app-pub-548396705444200/XXXXXXXXXX', // Native Advanced Ad Unit ID
+    BANNER: 'ca-app-pub-5483967054440200/2846247426', // Banner Ad Unit ID
+    INTERSTITIAL: 'ca-app-pub-5483967054440200/XXXXXXXXXX', // Interstitial Ad Unit ID
+    REWARDED: 'ca-app-pub-5483967054440200/XXXXXXXXXX', // Rewarded Video Ad Unit ID
+    NATIVE: 'ca-app-pub-5483967054440200/XXXXXXXXXX', // Native Advanced Ad Unit ID
   },
   
   // Test Ad Unit IDs (للاختبار فقط)
